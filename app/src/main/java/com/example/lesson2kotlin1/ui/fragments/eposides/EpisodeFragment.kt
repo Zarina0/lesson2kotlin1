@@ -8,7 +8,6 @@ import com.example.lesson2kotlin1.ui.adapters.EposidesAdapter
 import com.example.lesson2kotlin1.base.BaseFragment
 import com.example.lesson2kotlin1.databinding.FragmentEpisodeBinding
 import com.example.lesson2kotlin1.ui.adapters.loader.LoadingLoaderStateAdapter
-import com.example.lesson2kotlin1.ui.fragments.viewModels.EpisodesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

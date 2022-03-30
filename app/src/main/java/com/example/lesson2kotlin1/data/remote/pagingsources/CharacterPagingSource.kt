@@ -10,7 +10,6 @@ import java.io.IOException
 
 const val CHARACTER_KEY = 1
 
-
 class CharacterPagingSource(private val service: CharactersApiService) :
 PagingSource<Int, RickAndMortyCharacter>() {
 
@@ -18,15 +17,18 @@ PagingSource<Int, RickAndMortyCharacter>() {
         val page = params.key ?: CHARACTER_KEY
         return try {
             val response = service.fetchCharacters(page)
-            val nextPageNumber = Uri.parse(response.info.next).getQueryParameter("page")!!.toInt()
+            val nextPageNumber = if (response.info.next == null) {
+                null
+            } else
+                Uri.parse(response.info.next).getQueryParameter("page")!!.toInt()
             LoadResult.Page(
                 data = response.results,
                 prevKey = null,
                 nextKey = nextPageNumber
             )
-        } catch (e: IOException){
+        } catch (e: IOException) {
             LoadResult.Error(e)
-        } catch (e: HttpException){
+        } catch (e: HttpException) {
             LoadResult.Error(e)
         }
     }

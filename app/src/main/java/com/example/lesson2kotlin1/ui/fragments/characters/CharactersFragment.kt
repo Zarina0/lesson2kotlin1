@@ -9,7 +9,6 @@ import com.example.lesson2kotlin1.ui.adapters.CharactersAdapter
 import com.example.lesson2kotlin1.base.BaseFragment
 import com.example.lesson2kotlin1.databinding.FragmentCharactersBinding
 import com.example.lesson2kotlin1.ui.adapters.loader.LoadingLoaderStateAdapter
-import com.example.lesson2kotlin1.ui.fragments.viewModels.CharactersViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

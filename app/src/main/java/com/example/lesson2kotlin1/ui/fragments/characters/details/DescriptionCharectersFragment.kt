@@ -10,7 +10,6 @@ import com.example.lesson2kotlin1.base.BaseFragment
 import com.example.lesson2kotlin1.common.extension.setImage
 import com.example.lesson2kotlin1.common.resourse.Resource
 import com.example.lesson2kotlin1.databinding.FragmentDescriptionCharactersBinding
-import com.example.lesson2kotlin1.ui.fragments.viewModels.CharacterDetailsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

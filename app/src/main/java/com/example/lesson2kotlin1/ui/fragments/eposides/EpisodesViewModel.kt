@@ -1,4 +1,4 @@
-package com.example.lesson2kotlin1.ui.fragments.viewModels
+package com.example.lesson2kotlin1.ui.fragments.eposides
 
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn

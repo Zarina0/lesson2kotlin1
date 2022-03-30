@@ -17,18 +17,22 @@ class EpisodePagingSource (private val service: EpisodesApiService) :
         val page = params.key ?: EPISODE_KEY
         return try {
             val response = service.fetchEpisodes(page)
-            val nextPageNumber = Uri.parse(response.info.next).getQueryParameter("page")!!.toInt()
+            val nextPageNumber = if (response.info.next == null) {
+                null
+            } else
+                Uri.parse(response.info.next).getQueryParameter("page")!!.toInt()
             LoadResult.Page(
                 data = response.results,
                 prevKey = null,
                 nextKey = nextPageNumber
             )
-        } catch (e: IOException){
+        } catch (e: IOException) {
             LoadResult.Error(e)
-        } catch (e: HttpException){
+        } catch (e: HttpException) {
             LoadResult.Error(e)
         }
     }
+
 
     override fun getRefreshKey(state: PagingState<Int, RickAndMortyEpisode>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
